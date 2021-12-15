@@ -29,7 +29,7 @@ const DEFAULT_TASKS = [
     }
 ]
 
-const Todo: NextPageWithLayout = () => {
+const Tasks: NextPageWithLayout = () => {
     const [tasks, setTasks] = useState<TASKS>(DEFAULT_TASKS)
     const [taskName, setTaskName] = useState<string>('')
 
@@ -89,6 +89,6 @@ const Todo: NextPageWithLayout = () => {
     )
 }
 
-Todo.getLayout = page => <Layout>{page}</Layout>
+Tasks.getLayout = page => <Layout>{page}</Layout>
 
-export default Todo
+export default Tasks
