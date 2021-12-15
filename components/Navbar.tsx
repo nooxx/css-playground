@@ -14,7 +14,7 @@ const Navbar = () => {
             <Link href="/todo">
                 <a className="flex items-center gap-x-3 hover:text-red-500">
                     <ListIcon className="w-8"/>
-                    Todo
+                    Tasks
                 </a>
             </Link>
         </nav>
