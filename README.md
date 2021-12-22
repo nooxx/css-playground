@@ -1,5 +1,5 @@
 This project is where I build CSS nonsense.  
-Built with Next.js, Tailwind, Sass
+Built with Next.js, Tailwind and Sass modules for each CSS project.
 
 ## Getting Started
 

@@ -18,5 +18,4 @@
     h1 {
         @apply text-3xl tablet:text-5xl mb-8;
     }
-    
 }
