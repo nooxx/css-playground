@@ -3,11 +3,19 @@
 @tailwind utilities;
 
 @layer base {
+    a {
+        @apply transition ease-in duration-150;
+    }
+
     input {
         @apply border border-black p-4 rounded;
     }
 
     button {
         @apply inline-block  p-4 rounded border border-black;
+    }
+
+    h1 {
+        @apply text-5xl mb-8;
     }
 }
