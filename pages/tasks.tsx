@@ -1,5 +1,5 @@
 import type {NextPageWithLayout} from "./_app";
-import type {FormEvent, FormEventHandler} from "react";
+import type {FormEvent} from "react";
 import {useState} from "react";
 import Layout from "../components/Layout";
 
@@ -39,7 +39,7 @@ const Tasks: NextPageWithLayout = () => {
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
-        if(taskName === '') return
+        if (taskName === '') return
         const newTask: TASK = {
             id: Date.now(),
             name: taskName,
@@ -51,7 +51,10 @@ const Tasks: NextPageWithLayout = () => {
 
 
     const handleToggleTask = (id: number) => {
-        setTasks(tasks.map(t => (t.id === id ? {...t, isCompleted: !t.isCompleted} : t)))
+        setTasks(tasks.map(t => (t.id === id ? {
+            ...t,
+            isCompleted: !t.isCompleted
+        } : t)))
     }
 
     const handleDeleteTask = (id: number) => {
@@ -62,14 +65,17 @@ const Tasks: NextPageWithLayout = () => {
         <div>
             <h1 className="text-xl mb-4">Tasks</h1>
 
-            <form className="my-8 flex items-center gap-x-4" onSubmit={handleSubmit}>
-                <input value={taskName} onChange={handleChangeTaskName} placeholder="Enter task name..."/>
+            <form className="my-8 flex items-center gap-x-4"
+                  onSubmit={handleSubmit}>
+                <input value={taskName} onChange={handleChangeTaskName}
+                       placeholder="Enter task name..."/>
                 <button type="submit">Add new task</button>
             </form>
 
             <div className="max-w-xl">
                 {tasks.map((task, index) => (
-                    <div className="flex items-center mb-5" key={`task-${index}`}>
+                    <div className="flex items-center mb-5"
+                         key={`task-${index}`}>
                         <button
                             className="mr-4"
                             onClick={() => handleDeleteTask(task.id)}

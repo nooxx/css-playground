@@ -1,14 +1,14 @@
 import type {NextPageWithLayout} from "./_app";
 import Layout from "../components/Layout";
 
-const Home: NextPageWithLayout = () => {
+const Index: NextPageWithLayout = () => {
     return (
         <div>
-            Home page
+            Index page
         </div>
     )
 }
 
-Home.getLayout = page => <Layout>{page}</Layout>
+Index.getLayout = page => <Layout>{page}</Layout>
 
-export default Home
+export default Index
