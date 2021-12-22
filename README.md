@@ -1,4 +1,5 @@
-This project is just for me to learn and experience features in Next.js, Typescript, TailwindCSS and more.
+This project is where I build CSS nonsense.  
+Built with Next.js, Tailwind, Sass
 
 ## Getting Started
 
