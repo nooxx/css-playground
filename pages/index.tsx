@@ -3,10 +3,16 @@ import Layout from "../components/Layout";
 import Image from "next/image"
 import sun from "../public/sun.png"
 import circles from "../public/circles.png"
+import spiral from "../public/spiral.png"
 import React from "react";
 import Link from "next/link";
 
 export const PROJECTS = [
+    {
+        pathname: '/spiral3D',
+        content: '3D Spiral',
+        thumbnail: spiral,
+    },
     {
         pathname: '/circles',
         content: 'Circles',
