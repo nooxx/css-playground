@@ -9,6 +9,11 @@ import Link from "next/link";
 
 export const PROJECTS = [
     {
+        pathname: '/squares',
+        content: 'Squares',
+        thumbnail: spiral,
+    },
+    {
         pathname: '/spiral3D',
         content: '3D Spiral',
         thumbnail: spiral,
