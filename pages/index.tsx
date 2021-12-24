@@ -4,14 +4,15 @@ import Image from "next/image"
 import sun from "../public/sun.png"
 import circles from "../public/circles.png"
 import spiral from "../public/spiral.png"
+import cubes from "../public/cubes.png"
 import React from "react";
 import Link from "next/link";
 
 export const PROJECTS = [
     {
-        pathname: '/squares',
-        content: 'Squares',
-        thumbnail: spiral,
+        pathname: '/cubes',
+        content: 'Cubes',
+        thumbnail: cubes,
     },
     {
         pathname: '/spiral3D',
@@ -41,6 +42,7 @@ const Index: NextPageWithLayout = () => {
                             <Image
                                 src={project.thumbnail}
                                 alt="Sun"
+                                placeholder="blur"
                             />
                             <span
                                 className="transition ease-in duration-150 text-4xl group-hover:text-red-500">{project.content}</span>

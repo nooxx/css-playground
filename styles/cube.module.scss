@@ -1,0 +1,70 @@
+@use "sass:math";
+
+.cube {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  transform-style: preserve-3d;
+  aspect-ratio: 1 / 1;
+  transform: translateZ(-75px);
+  transition: transform 1s;
+  animation: rotate 5s infinite linear;
+
+  &__face {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 2px solid black;
+    //background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    animation: gradient 5s ease infinite;
+
+    @for $i from 0 to 6 {
+      &:nth-child(#{$i + 1}) {
+        background: linear-gradient(-45deg, rgb(random(255), random(255), random(255)), rgb(random(255), random(255), random(255)), rgb(random(255), random(255), random(255)), rgb(random(255), random(255), random(255)));
+        background-size: 400% 400%;
+      }
+    }
+
+    &__front  {
+      transform: rotateY(  0deg) translateZ(75px);
+    }
+    &__right  {
+      transform: rotateY( 90deg) translateZ(75px);
+    }
+    &__back   {
+      transform: rotateY(180deg) translateZ(75px);
+    }
+    &__left   {
+      transform: rotateY(-90deg) translateZ(75px);
+    }
+    &__top    {
+      transform: rotateX( 90deg) translateZ(75px);
+    }
+    &__bottom {
+      transform: rotateX(-90deg) translateZ(75px);
+    }
+  }
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: translateZ(-100px) rotateY(0deg) rotateX(0deg);
+  }
+
+  100% {
+    transform: translateZ(-100px) rotateY(360deg) rotateX(360deg);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
