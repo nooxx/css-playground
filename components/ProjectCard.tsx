@@ -4,8 +4,6 @@ import Link from "next/link";
 import {AppContext} from "../contexts/app-context";
 import {ArrowRightIcon} from "./Icons";
 
-import poster from "../public/favicon.ico"
-
 type ProjectCardProps = {
     pathname: string,
     title: string,
@@ -58,11 +56,11 @@ const ProjectCard = ({pathname, title, date, thumbnail, video}: ProjectCardProps
                 {video && (
                     <video
                         ref={videoRef}
+                        autoPlay={true}
                         loop={true}
                         muted={true}
                         preload="auto"
                         className="w-full"
-                        poster="/favicon.ico"
                     >
                         <source src={video} type="video/webm"/>
                         Your browser does not support the video tag.
