@@ -1,15 +1,11 @@
 import React from 'react'
 import Head from "next/head";
-import {useRouter} from "next/router";
 
 type SeoProps = {
     title: string,
-
 }
 
 const Seo = ({title}: SeoProps) => {
-    const router = useRouter()
-    console.log(router)
     return (
         <Head>
             <title>{title} - CSS Playground</title>

@@ -1,53 +1,61 @@
 import type {NextPageWithLayout} from "./_app";
 import Layout from "../components/Layout";
-import Image from "next/image"
 import sun from "../public/sun.png"
 import circles from "../public/circles.png"
-import spiral from "../public/spiral.png"
-import cubes from "../public/cubes.png"
-import React from "react";
-import Link from "next/link";
+import React, {useRef} from "react";
+import ProjectCard from "../components/ProjectCard";
+import Switch from "../components/Switch";
 
 export const PROJECTS = [
     {
-        pathname: '/cubes',
-        content: 'Cubes',
-        thumbnail: cubes,
-    },
-    {
-        pathname: '/spiral3D',
-        content: '3D Spiral',
-        thumbnail: spiral,
+        pathname: '/cube',
+        title: 'Cube',
+        date: 'January 2022',
+        video: '/cube.webm',
     },
     {
         pathname: '/circles',
-        content: 'Circles',
+        title: 'Circles',
+        date: 'November 2021',
         thumbnail: circles,
     },
     {
         pathname: '/sun',
-        content: 'Sun',
+        title: 'Sun',
+        date: 'November 2021',
         thumbnail: sun,
     },
 ]
 
+
 const Index: NextPageWithLayout = () => {
+    const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
+
+    const handlePlayAllProjects = (isPlayAllProjects: Boolean) => {
+        if(isPlayAllProjects){
+            for(let i = 0; i < videoRefs.current.length; i++){
+                videoRefs.current[i]?.play()
+            }
+        }else {
+            for(let i = 0; i < videoRefs.current.length; i++){
+                videoRefs.current[i]?.pause()
+            }
+        }
+    }
+
     return (
         <div className="max-w-screen-desktop mx-auto w-full px-4 tablet:px-8 py-8 text-white">
-            <h1>My latest CSS projects</h1>
-            <div className="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-8">
+            <div className="flex items-center justify-between">
+                <h1>Latest projects</h1>
+                <Switch onChange={handlePlayAllProjects} label="Play all projects"/>
+            </div>
+            <div className="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-8 mb-20">
                 {PROJECTS.map((project, index) => (
-                    <Link href={project.pathname} key={`nav-project-${index}`}>
-                        <a className={`flex flex-col justify-center items-center gap-y-4 p-8 border-2 border-white rounded-lg hover:border-red-500 group`}>
-                            <Image
-                                src={project.thumbnail}
-                                alt="Sun"
-                                placeholder="blur"
-                            />
-                            <span
-                                className="transition ease-in duration-150 text-4xl group-hover:text-red-500">{project.content}</span>
-                        </a>
-                    </Link>
+                    <ProjectCard
+                        key={`nav-project-${index}`}
+                        ref={videoRef => videoRefs.current[index] = videoRef}
+                        {...project}
+                    />
                 ))}
             </div>
         </div>

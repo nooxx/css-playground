@@ -1,0 +1,79 @@
+@use "sass:math";
+
+$cube_width: 350;
+$color_saturation: 100%;
+$color_lightness: 50%;
+
+.cube {
+  width: #{$cube_width}px;
+  height: #{$cube_width}px;
+  position: relative;
+  transform-style: preserve-3d;
+  aspect-ratio: 1 / 1;
+  transform: translateZ(-75px);
+  transition: transform 1s;
+  animation: animate-rotation 5s infinite linear;
+
+  &__face {
+    position: absolute;
+    width: #{$cube_width}px;
+    height: #{$cube_width}px;
+    border: 2px solid black;
+    animation: animate-background-position 5s ease infinite;
+
+    @for $i from 1 to 7 {
+      &:nth-child(#{$i}) {
+        --hue1: #{($i - 1) * 60};
+        --hue2: #{$i * 60};
+
+        background: linear-gradient(-45deg,
+                hsl(var(--hue1), #{$color_saturation}, #{$color_lightness}),
+                hsl(var(--hue2), #{$color_saturation}, #{$color_lightness}),
+        );
+        background-size: 400% 400%;
+      }
+    }
+
+    &__front  {
+      transform: rotateY(  0deg) translateZ(#{math.div($cube_width, 2)}px);
+    }
+    &__right  {
+      transform: rotateY( 90deg) translateZ(#{math.div($cube_width, 2)}px);
+    }
+    &__back   {
+      transform: rotateY(180deg) translateZ(#{math.div($cube_width, 2)}px);
+    }
+    &__left   {
+      transform: rotateY(-90deg) translateZ(#{math.div($cube_width, 2)}px);
+    }
+    &__top    {
+      transform: rotateX( 90deg) translateZ(#{math.div($cube_width, 2)}px);
+    }
+    &__bottom {
+      transform: rotateX(-90deg) translateZ(#{math.div($cube_width, 2)}px);
+    }
+  }
+}
+
+
+@keyframes animate-rotation {
+  0% {
+    transform: translateZ(-100px) rotateY(0deg) rotateX(0deg);
+  }
+
+  100% {
+    transform: translateZ(-100px) rotateY(360deg) rotateX(360deg);
+  }
+}
+
+@keyframes animate-background-position {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}

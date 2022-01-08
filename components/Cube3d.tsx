@@ -1,7 +1,8 @@
 import React from 'react'
-import styles from '../styles/cube.module.scss'
+import type {FunctionComponent} from "react";
+import styles from '../styles/cube3d.module.scss'
 
-const Cube = () => {
+const Cube3d: FunctionComponent = () => {
     return (
         <div className={styles.cube}>
             <div className={`${styles.cube__face} ${styles.cube__face__front}`}/>
@@ -14,4 +15,4 @@ const Cube = () => {
     )
 }
 
-export default Cube
+export default Cube3d

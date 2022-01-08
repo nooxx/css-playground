@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from "next/link"
 import {useRouter} from "next/router"
-import {PROJECTS} from "../pages";
 import {HomeIcon} from "./Icons";
 
 const Navbar = () => {
@@ -17,14 +16,6 @@ const Navbar = () => {
                         Home
                     </a>
                 </Link>
-
-                {PROJECTS.map((link, index) => (
-                    <Link href={link.pathname} key={`nav-link-${index}`}>
-                        <a className={`flex items-center gap-x-3 hover:text-red-500 ${router.pathname === link.pathname ? 'text-red-500' : ''}`}>
-                            {link.content}
-                        </a>
-                    </Link>
-                ))}
             </nav>
         </div>
     )
