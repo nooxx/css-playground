@@ -1,15 +1,13 @@
 import type {NextPageWithLayout} from "./_app";
 import Layout from "../components/Layout";
 import styles from "../styles/circles.module.scss"
-import Head from "next/head";
 import React from "react";
+import Seo from "../components/Seo";
 
 const Circles: NextPageWithLayout = () => {
     return (
-        <>
-            <Head>
-                <title>Circles - CSS Playground</title>
-            </Head>
+        <div className="w-screen h-screen overflow-hidden relative">
+            <Seo title="Circles"/>
             <div className={styles.circles}>
                 <div className={styles.spiral}>
                     <div className={styles.spiral__circle}>
@@ -101,7 +99,7 @@ const Circles: NextPageWithLayout = () => {
                     <div className={styles.spiral__inner}/>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

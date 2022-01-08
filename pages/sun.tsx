@@ -1,15 +1,13 @@
 import type {NextPageWithLayout} from "./_app";
 import Layout from "../components/Layout";
 import styles from "../styles/sun.module.scss"
-import Head from "next/head";
 import React from "react";
+import Seo from "../components/Seo";
 
 const Sun: NextPageWithLayout = () => {
     return (
-        <>
-            <Head>
-                <title>Sun - CSS Playground</title>
-            </Head>
+        <div className="relative w-screen h-screen flex items-center justify-center">
+            <Seo title="Sun"/>
             <div className={styles.sun}>
                 <div className={styles.sun__heart}/>
                 <div className={styles.sun__cornerContainer}>
@@ -27,7 +25,7 @@ const Sun: NextPageWithLayout = () => {
                     <div/>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

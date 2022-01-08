@@ -32,12 +32,12 @@ const Index: NextPageWithLayout = () => {
     const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
 
     const handlePlayAllProjects = (isPlayAllProjects: Boolean) => {
-        if(isPlayAllProjects){
-            for(let i = 0; i < videoRefs.current.length; i++){
+        if (isPlayAllProjects) {
+            for (let i = 0; i < videoRefs.current.length; i++) {
                 videoRefs.current[i]?.play()
             }
-        }else {
-            for(let i = 0; i < videoRefs.current.length; i++){
+        } else {
+            for (let i = 0; i < videoRefs.current.length; i++) {
                 videoRefs.current[i]?.pause()
             }
         }
@@ -45,7 +45,7 @@ const Index: NextPageWithLayout = () => {
 
     return (
         <div className="max-w-screen-desktop mx-auto w-full px-4 tablet:px-8 py-8 text-white">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between my-10">
                 <h1>Latest projects</h1>
                 <Switch onChange={handlePlayAllProjects} label="Play all projects"/>
             </div>
