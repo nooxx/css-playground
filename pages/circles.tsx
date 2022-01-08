@@ -9,7 +9,7 @@ const Circles: NextPageWithLayout = () => {
     return (
         <>
             <Seo title="Circles"/>
-            <ProjectHeader title="Circles" className="mb-16"/>
+            <ProjectHeader title="Circles" date="Dec 2021" className="mb-16"/>
             <div className="relative flex flex-grow items-center justify-center overflow-hidden">
                 <div className={styles.circles}>
                     <div className={styles.spiral}>

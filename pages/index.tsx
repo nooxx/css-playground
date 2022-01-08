@@ -1,6 +1,5 @@
 import type {NextPageWithLayout} from "./_app";
 import Layout from "../components/Layout";
-import sun from "../public/sun.png"
 import React, {useContext} from "react";
 import ProjectCard from "../components/ProjectCard";
 import Switch from "../components/Switch";
@@ -10,19 +9,19 @@ export const PROJECTS = [
     {
         pathname: '/cube',
         title: 'Cube',
-        date: 'January 2022',
+        date: 'Jan 2022',
         video: '/cube.webm',
     },
     {
         pathname: '/circles',
         title: 'Circles',
-        date: 'November 2021',
+        date: 'Dec 2021',
         video: '/circles.webm',
     },
     {
         pathname: '/sun',
         title: 'Sun',
-        date: 'November 2021',
+        date: 'Nov 2021',
         video: '/sun.webm',
     },
 ]

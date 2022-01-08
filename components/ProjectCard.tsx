@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from 'react'
 import Image from "next/image";
 import Link from "next/link";
 import {AppContext} from "../contexts/app-context";
+import {ArrowRightIcon} from "./Icons";
 
 type ProjectCardProps = {
     pathname: string,
@@ -36,10 +37,15 @@ const ProjectCard = ({pathname, title, date, thumbnail, video}: ProjectCardProps
     return (
         <Link href={pathname}>
             <a
-                className={`flex flex-col justify-center items-center gap-y-4 p-8 border-2 border-white rounded-lg hover:border-red-500 group`}
+                className={`p-8 border-2 border-white rounded-lg hover:border-primary group`}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >
+                <div className="flex items-center justify-between mb-3">
+                    <h2 className="text-4xl">{title}</h2>
+                    <span className="text-sm font-light">{date}</span>
+                </div>
+
                 {thumbnail && (
                     <Image
                         src={thumbnail}
@@ -58,8 +64,12 @@ const ProjectCard = ({pathname, title, date, thumbnail, video}: ProjectCardProps
                         Your browser does not support the video tag.
                     </video>
                 )}
-                <span
-                    className="transition ease-in duration-150 text-4xl group-hover:text-red-500">{title}</span>
+
+                <div className="flex justify-end">
+                    <div className="flex items-center font-bold text-base tracking-wide transition ease-in duration-150 group-hover:text-primary">
+                        View project <ArrowRightIcon className="ml-2"/>
+                    </div>
+                </div>
             </a>
         </Link>
     )

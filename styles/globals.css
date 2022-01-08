@@ -8,6 +8,6 @@
     }
 
     h1 {
-        @apply text-3xl tablet:text-5xl;
+        @apply text-4xl tablet:text-5xl;
     }
 }

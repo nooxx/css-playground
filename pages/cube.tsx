@@ -9,7 +9,7 @@ const Cube: NextPageWithLayout = () => {
     return (
         <>
             <Seo title="Cubes"/>
-            <ProjectHeader title="Cube" className="mb-48"/>
+            <ProjectHeader title="Cube" date="Jan 2022" className="mb-48"/>
             <div className={`flex items-center justify-center`} style={{perspective: 600}}>
                 <Cube3d/>
             </div>
