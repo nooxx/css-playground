@@ -4,10 +4,11 @@ import {Switch as HeadLessSwitch} from '@headlessui/react'
 type SwitchProps = {
     onChange: Function,
     label?: string,
+    checked?: boolean,
 }
 
-const Switch = ({onChange, label}: SwitchProps) => {
-    const [enabled, setEnabled] = useState(false)
+const Switch = ({onChange, label, checked = false}: SwitchProps) => {
+    const [enabled, setEnabled] = useState(checked)
 
     return (
         <HeadLessSwitch.Group as="div" className="flex items-center">

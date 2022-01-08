@@ -1,15 +1,38 @@
-import {createContext, Dispatch, SetStateAction} from "react"
+import {createContext, Dispatch, ReactNode, SetStateAction, useState} from "react"
 
-export type AppContextType = {
+type ContextValues = {
     areAllVideosPlaying: boolean,
-    setAppContext: Dispatch<SetStateAction<AppContextType>>
 }
 
-export const AppContextInitialValue: AppContextType = {
+// Context interface
+type AppContextInterface = {
+    appContext: ContextValues,
+    setAppContext: Dispatch<SetStateAction<ContextValues>>,
+}
+
+// Default values
+const DEFAULT_CONTEXT_VALUES = {
     areAllVideosPlaying: false,
+}
+
+// Whole context default value (with functions)
+const AppContextDefaultValue: AppContextInterface = {
+    appContext: {...DEFAULT_CONTEXT_VALUES},
     setAppContext: (): void => {
-        throw new Error('setContext function must be overridden');
+        throw new Error('setAppContext function must be overridden');
     },
 }
 
-export const AppContext = createContext<AppContextType>(AppContextInitialValue)
+// App context created by react
+export const AppContext = createContext<AppContextInterface>(AppContextDefaultValue)
+
+// App context provider, used in <Layout> so you can access the context within the whole app
+export const AppContextProvider = ({children}: { children: ReactNode}) => {
+    const [appContext, setAppContext] = useState<ContextValues>(DEFAULT_CONTEXT_VALUES)
+
+    return (
+        <AppContext.Provider value={{appContext, setAppContext}}>
+            {children}
+        </AppContext.Provider>
+    )
+}

@@ -2,9 +2,10 @@ import type {NextPageWithLayout} from "./_app";
 import Layout from "../components/Layout";
 import sun from "../public/sun.png"
 import circles from "../public/circles.png"
-import React, {useRef} from "react";
+import React, {useContext, useEffect, useRef} from "react";
 import ProjectCard from "../components/ProjectCard";
 import Switch from "../components/Switch";
+import {AppContext} from "../contexts/app-context";
 
 export const PROJECTS = [
     {
@@ -29,31 +30,27 @@ export const PROJECTS = [
 
 
 const Index: NextPageWithLayout = () => {
-    const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
+    const {appContext, setAppContext} = useContext(AppContext)
 
-    const handlePlayAllProjects = (isPlayAllProjects: Boolean) => {
-        if (isPlayAllProjects) {
-            for (let i = 0; i < videoRefs.current.length; i++) {
-                videoRefs.current[i]?.play()
-            }
-        } else {
-            for (let i = 0; i < videoRefs.current.length; i++) {
-                videoRefs.current[i]?.pause()
-            }
-        }
+    const handlePlayAllProjects = () => {
+        // Update context
+        setAppContext({...appContext, areAllVideosPlaying: !appContext.areAllVideosPlaying})
     }
 
     return (
         <div className="max-w-screen-desktop mx-auto w-full px-4 tablet:px-8 py-8 text-white">
             <div className="flex items-center justify-between my-10">
                 <h1>Latest projects</h1>
-                <Switch onChange={handlePlayAllProjects} label="Play all projects"/>
+                <Switch
+                    checked={appContext.areAllVideosPlaying}
+                    onChange={handlePlayAllProjects}
+                    label="Play all projects"
+                />
             </div>
             <div className="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-8 mb-20">
                 {PROJECTS.map((project, index) => (
                     <ProjectCard
                         key={`nav-project-${index}`}
-                        ref={videoRef => videoRefs.current[index] = videoRef}
                         {...project}
                     />
                 ))}

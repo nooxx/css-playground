@@ -1,7 +1,7 @@
-import React, {forwardRef} from 'react'
+import React, {useContext, useEffect} from 'react'
 import Image from "next/image";
 import Link from "next/link";
-import useCombinedRefs from "../hooks/useCombinedRefs";
+import {AppContext} from "../contexts/app-context";
 
 type ProjectCardProps = {
     pathname: string,
@@ -11,18 +11,26 @@ type ProjectCardProps = {
     video?: string,
 }
 
-const ProjectCard = forwardRef<HTMLVideoElement, ProjectCardProps>(({pathname, title, date, thumbnail, video}, ref) => {
-    const innerRef = React.useRef<HTMLVideoElement>(null)
-    const combinedRef = useCombinedRefs(ref, innerRef)
+const ProjectCard = ({pathname, title, date, thumbnail, video}: ProjectCardProps) => {
+    const {appContext} = useContext(AppContext)
+    const videoRef = React.useRef<HTMLVideoElement>(null)
+
+    useEffect(() => {
+        if (appContext.areAllVideosPlaying) {
+            videoRef?.current?.play()
+        } else {
+            videoRef?.current?.pause()
+        }
+    }, [appContext.areAllVideosPlaying])
 
     const handleMouseEnter = () => {
-        if(!video) return
-        innerRef?.current?.play()
+        if (!video || appContext.areAllVideosPlaying) return
+        videoRef?.current?.play()
     }
 
     const handleMouseLeave = () => {
-        if(!video) return
-        innerRef?.current?.pause()
+        if (!video || appContext.areAllVideosPlaying) return
+        videoRef?.current?.pause()
     }
 
     return (
@@ -41,7 +49,7 @@ const ProjectCard = forwardRef<HTMLVideoElement, ProjectCardProps>(({pathname, t
                 )}
                 {video && (
                     <video
-                        ref={combinedRef}
+                        ref={videoRef}
                         loop={true}
                         muted={true}
                         className="w-full"
@@ -55,10 +63,7 @@ const ProjectCard = forwardRef<HTMLVideoElement, ProjectCardProps>(({pathname, t
             </a>
         </Link>
     )
-})
-
-// For ESLINT
-ProjectCard.displayName = "ProjectCard";
+}
 
 export default ProjectCard
 

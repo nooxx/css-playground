@@ -1,12 +1,9 @@
 import type {FunctionComponent} from "react";
-import React, {useState} from 'react'
-import Navbar from "./Navbar"
+import React from 'react'
 import Head from "next/head"
-import {AppContext, AppContextInitialValue, AppContextType} from "../contexts/app-context";
+import {AppContextProvider} from "../contexts/app-context";
 
 const Layout: FunctionComponent = ({children}) => {
-    const [appContext, setAppContext] = useState<AppContextType>(AppContextInitialValue)
-
     return (
         <>
             <Head>
@@ -14,11 +11,11 @@ const Layout: FunctionComponent = ({children}) => {
                 <meta name="description" content="CSS projects and experiments."/>
                 <meta name="keywords" content="CSS, Arno Simon, projects"/>
             </Head>
-            <AppContext.Provider value={{...appContext, setAppContext}}>
+            <AppContextProvider>
                 <main className="min-h-screen bg-black relative">
                     {children}
                 </main>
-            </AppContext.Provider>
+            </AppContextProvider>
         </>
     )
 }
