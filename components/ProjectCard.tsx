@@ -58,6 +58,7 @@ const ProjectCard = ({pathname, title, date, thumbnail, video}: ProjectCardProps
                         ref={videoRef}
                         loop={true}
                         muted={true}
+                        preload="auto"
                         className="w-full"
                     >
                         <source src={video} type="video/webm"/>
