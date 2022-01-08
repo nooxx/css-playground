@@ -3,103 +3,187 @@ import Layout from "../components/Layout";
 import styles from "../styles/circles.module.scss"
 import React from "react";
 import Seo from "../components/Seo";
+import ProjectHeader from "../components/ProjectHeader";
 
 const Circles: NextPageWithLayout = () => {
     return (
-        <div className="w-screen h-screen overflow-hidden relative">
+        <>
             <Seo title="Circles"/>
-            <div className={styles.circles}>
-                <div className={styles.spiral}>
-                    <div className={styles.spiral__circle}>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
+            <ProjectHeader title="Circles" className="mb-16"/>
+            <div className="relative flex flex-grow items-center justify-center overflow-hidden">
+                <div className={styles.circles}>
+                    <div className={styles.spiral}>
+                        <div className={styles.spiral__circle}>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                        </div>
+                        <div className={styles.spiral__inner}/>
                     </div>
-                    <div className={styles.spiral__inner}/>
-                </div>
 
-                <div className={styles.spiral}>
-                    <div className={styles.spiral__circle}>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
+                    <div className={styles.spiral}>
+                        <div className={styles.spiral__circle}>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                        </div>
+                        <div className={styles.spiral__inner}/>
                     </div>
-                    <div className={styles.spiral__inner}/>
-                </div>
 
-                <div className={styles.spiral}>
-                    <div className={styles.spiral__circle}>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
+                    <div className={styles.spiral}>
+                        <div className={styles.spiral__circle}>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                        </div>
+                        <div className={styles.spiral__inner}/>
                     </div>
-                    <div className={styles.spiral__inner}/>
-                </div>
 
-                <div className={styles.spiral}>
-                    <div className={styles.spiral__circle}>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
+                    <div className={styles.spiral}>
+                        <div className={styles.spiral__circle}>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                        </div>
+                        <div className={styles.spiral__inner}/>
                     </div>
-                    <div className={styles.spiral__inner}/>
-                </div>
 
-                <div className={styles.spiral}>
-                    <div className={styles.spiral__circle}>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
+                    <div className={styles.spiral}>
+                        <div className={styles.spiral__circle}>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                        </div>
+                        <div className={styles.spiral__inner}/>
                     </div>
-                    <div className={styles.spiral__inner}/>
-                </div>
 
-                <div className={styles.spiral}>
-                    <div className={styles.spiral__circle}>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
+                    <div className={styles.spiral}>
+                        <div className={styles.spiral__circle}>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                        </div>
+                        <div className={styles.spiral__inner}/>
                     </div>
-                    <div className={styles.spiral__inner}/>
-                </div>
 
-                <div className={styles.spiral}>
-                    <div className={styles.spiral__circle}>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
+                    <div className={styles.spiral}>
+                        <div className={styles.spiral__circle}>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                        </div>
+                        <div className={styles.spiral__inner}/>
                     </div>
-                    <div className={styles.spiral__inner}/>
-                </div>
 
-                <div className={styles.spiral}>
-                    <div className={styles.spiral__circle}>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
+                    <div className={styles.spiral}>
+                        <div className={styles.spiral__circle}>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                        </div>
+                        <div className={styles.spiral__inner}/>
                     </div>
-                    <div className={styles.spiral__inner}/>
-                </div>
 
-                <div className={styles.spiral}>
-                    <div className={styles.spiral__circle}>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
-                        <div className={styles.spiral__circle__segment}/>
+                    <div className={styles.spiral}>
+                        <div className={styles.spiral__circle}>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                        </div>
+                        <div className={styles.spiral__inner}/>
                     </div>
-                    <div className={styles.spiral__inner}/>
+
+                    <div className={styles.spiral}>
+                        <div className={styles.spiral__circle}>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                        </div>
+                        <div className={styles.spiral__inner}/>
+                    </div>
+
+                    <div className={styles.spiral}>
+                        <div className={styles.spiral__circle}>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                        </div>
+                        <div className={styles.spiral__inner}/>
+                    </div>
+
+                    <div className={styles.spiral}>
+                        <div className={styles.spiral__circle}>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                        </div>
+                        <div className={styles.spiral__inner}/>
+                    </div>
+
+                    <div className={styles.spiral}>
+                        <div className={styles.spiral__circle}>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                        </div>
+                        <div className={styles.spiral__inner}/>
+                    </div>
+
+                    <div className={styles.spiral}>
+                        <div className={styles.spiral__circle}>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                        </div>
+                        <div className={styles.spiral__inner}/>
+                    </div>
+
+                    <div className={styles.spiral}>
+                        <div className={styles.spiral__circle}>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                        </div>
+                        <div className={styles.spiral__inner}/>
+                    </div>
+
+                    <div className={styles.spiral}>
+                        <div className={styles.spiral__circle}>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                        </div>
+                        <div className={styles.spiral__inner}/>
+                    </div>
+
+                    <div className={styles.spiral}>
+                        <div className={styles.spiral__circle}>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                            <div className={styles.spiral__circle__segment}/>
+                        </div>
+                        <div className={styles.spiral__inner}/>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

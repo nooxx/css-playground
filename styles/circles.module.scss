@@ -11,8 +11,7 @@ $pink: #ED028C;
 $blue: #00ADEF;
 $violet: #4A0090;
 
-$colors: $violet $blue $pink $red $purple $yellow-light $yellow $green $teal;
-$nb-colors: 9;
+$colors: $violet $blue $pink $red $purple $yellow-light $yellow $green $teal $violet $blue $pink $red $purple $yellow-light $yellow $green $teal;
 
 $circle-spacing: 60;
 
@@ -20,23 +19,21 @@ $circle-spacing: 60;
   .spiral {
     $index: 0;
     @for $i from $nb-circle through 1 {
-      $color-index: ($nb-colors % $i) + 1;
       $color: list.nth($colors, $i);
 
       &:nth-of-type(#{$i}) {
-        animation-delay: #{$index}s;
         width: calc(80vh - #{$circle-spacing * ($i - 1)}px);
         max-width: calc(90% - #{$circle-spacing * ($i - 1)}px);
 
         @if ($index % 2 == 0) {
           .spiral__circle {
             animation: rotate-clock #{$index * 0.5 + 1}s linear infinite;
-            animation-delay: #{$index}s;
+            animation-delay: #{$index * 0.25}s;
           }
         } @else {
           .spiral__circle {
             animation: rotate-anti-clock #{$index * 0.5 + 1}s linear infinite;
-            animation-delay: #{$index}s;
+            animation-delay: #{$index * 0.25}s;
           }
         }
 
@@ -66,7 +63,7 @@ $circle-spacing: 60;
 }
 
 .circles {
-  @include spirals(9);
+  @include spirals(17);
 }
 
 .spiral {
@@ -75,7 +72,7 @@ $circle-spacing: 60;
   aspect-ratio: 1 / 1;
   left: 50%;
   top: 50%;
-  animation: fade-in 3s ease forwards;
+  animation: fade-in 0.25s ease-in forwards;
   transform: translateX(-50%) translateY(-50%);
 
   &__circle {

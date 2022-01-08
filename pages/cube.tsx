@@ -3,12 +3,14 @@ import Layout from "../components/Layout";
 import React from "react";
 import Cube3d from "../components/Cube3d";
 import Seo from "../components/Seo";
+import ProjectHeader from "../components/ProjectHeader";
 
 const Cube: NextPageWithLayout = () => {
     return (
         <>
             <Seo title="Cubes"/>
-            <div className={`min-h-screen flex items-center justify-center`} style={{perspective: 600}}>
+            <ProjectHeader title="Cube" className="mb-48"/>
+            <div className={`flex items-center justify-center`} style={{perspective: 600}}>
                 <Cube3d/>
             </div>
         </>

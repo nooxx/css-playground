@@ -1,8 +1,7 @@
 import type {NextPageWithLayout} from "./_app";
 import Layout from "../components/Layout";
 import sun from "../public/sun.png"
-import circles from "../public/circles.png"
-import React, {useContext, useEffect, useRef} from "react";
+import React, {useContext} from "react";
 import ProjectCard from "../components/ProjectCard";
 import Switch from "../components/Switch";
 import {AppContext} from "../contexts/app-context";
@@ -18,13 +17,13 @@ export const PROJECTS = [
         pathname: '/circles',
         title: 'Circles',
         date: 'November 2021',
-        thumbnail: circles,
+        video: '/circles.webm',
     },
     {
         pathname: '/sun',
         title: 'Sun',
         date: 'November 2021',
-        thumbnail: sun,
+        video: '/sun.webm',
     },
 ]
 
@@ -38,8 +37,8 @@ const Index: NextPageWithLayout = () => {
     }
 
     return (
-        <div className="max-w-screen-desktop mx-auto w-full px-4 tablet:px-8 py-8 text-white">
-            <div className="flex items-center justify-between my-10">
+        <div className="max-w-screen-desktop mx-auto w-full px-4 tablet:px-8">
+            <div className="flex items-center justify-between mb-10">
                 <h1>Latest projects</h1>
                 <Switch
                     checked={appContext.areAllVideosPlaying}

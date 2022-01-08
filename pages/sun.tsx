@@ -3,26 +3,30 @@ import Layout from "../components/Layout";
 import styles from "../styles/sun.module.scss"
 import React from "react";
 import Seo from "../components/Seo";
+import ProjectHeader from "../components/ProjectHeader";
 
 const Sun: NextPageWithLayout = () => {
     return (
-        <div className="relative w-screen h-screen flex items-center justify-center">
+        <div className="">
             <Seo title="Sun"/>
-            <div className={styles.sun}>
-                <div className={styles.sun__heart}/>
-                <div className={styles.sun__cornerContainer}>
-                    <div/>
-                    <div/>
-                    <div/>
-                    <div/>
-                    <div/>
-                    <div/>
-                    <div/>
-                    <div/>
-                    <div/>
-                    <div/>
-                    <div/>
-                    <div/>
+            <ProjectHeader title="Sun" className="mb-48"/>
+            <div className="relative flex items-center justify-center">
+                <div className={styles.sun}>
+                    <div className={styles.sun__heart}/>
+                    <div className={styles.sun__cornerContainer}>
+                        <div/>
+                        <div/>
+                        <div/>
+                        <div/>
+                        <div/>
+                        <div/>
+                        <div/>
+                        <div/>
+                        <div/>
+                        <div/>
+                        <div/>
+                        <div/>
+                    </div>
                 </div>
             </div>
         </div>
