@@ -17,6 +17,7 @@ const ProjectCard = ({pathname, title, date, thumbnail, video}: ProjectCardProps
     const videoRef = React.useRef<HTMLVideoElement>(null)
 
     useEffect(() => {
+        console.log('use efffect')
         if (appContext.areAllVideosPlaying) {
             videoRef?.current?.play()
         } else {
