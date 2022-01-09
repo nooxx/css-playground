@@ -1,9 +1,8 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useEffect} from 'react'
 import Link from "next/link";
 import Image from "next/image"
 import {AppContext} from "../contexts/app-context";
 import {ArrowRightIcon} from "./Icons";
-import {useWindowSize} from "../hooks/useWindowSize";
 
 export type ProjectCardProps = {
     pathname: string,
@@ -14,7 +13,14 @@ export type ProjectCardProps = {
     video_webm?: string,
 }
 
-const ProjectCard = ({pathname, title, date, thumbnail, video_mp4, video_webm}: ProjectCardProps) => {
+const ProjectCard = ({
+                         pathname,
+                         title,
+                         date,
+                         thumbnail,
+                         video_mp4,
+                         video_webm
+                     }: ProjectCardProps) => {
     const {appContext} = useContext(AppContext)
     const videoRef = React.useRef<HTMLVideoElement>(null)
 
