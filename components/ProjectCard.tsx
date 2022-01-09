@@ -1,8 +1,9 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import Link from "next/link";
 import Image from "next/image"
 import {AppContext} from "../contexts/app-context";
 import {ArrowRightIcon} from "./Icons";
+import {useWindowSize} from "../hooks/useWindowSize";
 
 export type ProjectCardProps = {
     pathname: string,
@@ -16,7 +17,15 @@ export type ProjectCardProps = {
 const ProjectCard = ({pathname, title, date, thumbnail, video_mp4, video_webm}: ProjectCardProps) => {
     const {appContext} = useContext(AppContext)
     const videoRef = React.useRef<HTMLVideoElement>(null)
+    const [showVideo, setShowVideo] = useState<boolean>(false)
+    const size = useWindowSize()
 
+    // Show video only on tablet and desktop
+    useEffect(() => {
+        setShowVideo(size.width > 640)
+    }, [size])
+
+    // Play / pause video depending on areAllVideosPlaying
     useEffect(() => {
         if (appContext.areAllVideosPlaying) {
             videoRef?.current?.play()
@@ -25,11 +34,13 @@ const ProjectCard = ({pathname, title, date, thumbnail, video_mp4, video_webm}: 
         }
     }, [appContext.areAllVideosPlaying])
 
+    // Play video on mouseenter
     const handleMouseEnter = () => {
         if (appContext.areAllVideosPlaying) return
         videoRef?.current?.play()
     }
 
+    // Pause video on mouseleave
     const handleMouseLeave = () => {
         if (appContext.areAllVideosPlaying) return
         videoRef?.current?.pause()
@@ -57,18 +68,18 @@ const ProjectCard = ({pathname, title, date, thumbnail, video_mp4, video_webm}: 
                     />
                 </div>
 
-                <video
-                    ref={videoRef}
-                    className="hidden tablet:block w-full text-white"
-                    autoPlay={true}
-                    loop={true}
-                    muted={true}
-                    playsInline={true}
-                >
-                    <source src={video_mp4} type="video/mp4"/>
-                    <source src={video_webm} type="video/webm"/>
-                    Your browser does not support the video tag.
-                </video>
+                {showVideo && (
+                    <video
+                        ref={videoRef}
+                        className="hidden tablet:block w-full"
+                        loop={true}
+                        muted={true}
+                    >
+                        <source src={video_mp4} type="video/mp4"/>
+                        <source src={video_webm} type="video/webm"/>
+                        Your browser does not support the video tag.
+                    </video>
+                )}
 
                 <div className="flex justify-end">
                     <div
