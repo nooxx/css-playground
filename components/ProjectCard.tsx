@@ -17,13 +17,6 @@ export type ProjectCardProps = {
 const ProjectCard = ({pathname, title, date, thumbnail, video_mp4, video_webm}: ProjectCardProps) => {
     const {appContext} = useContext(AppContext)
     const videoRef = React.useRef<HTMLVideoElement>(null)
-    const [showVideo, setShowVideo] = useState<boolean>(false)
-    const size = useWindowSize()
-
-    // Show video only on tablet and desktop
-    useEffect(() => {
-        setShowVideo(size.width > 640)
-    }, [size])
 
     // Play / pause video depending on areAllVideosPlaying
     useEffect(() => {
@@ -68,18 +61,16 @@ const ProjectCard = ({pathname, title, date, thumbnail, video_mp4, video_webm}: 
                     />
                 </div>
 
-                {showVideo && (
-                    <video
-                        ref={videoRef}
-                        className="hidden tablet:block w-full"
-                        loop={true}
-                        muted={true}
-                    >
-                        <source src={video_mp4} type="video/mp4"/>
-                        <source src={video_webm} type="video/webm"/>
-                        Your browser does not support the video tag.
-                    </video>
-                )}
+                <video
+                    ref={videoRef}
+                    className="hidden tablet:block w-full"
+                    loop={true}
+                    muted={true}
+                >
+                    <source src={video_mp4} type="video/mp4"/>
+                    <source src={video_webm} type="video/webm"/>
+                    Your browser does not support the video tag.
+                </video>
 
                 <div className="flex justify-end">
                     <div
