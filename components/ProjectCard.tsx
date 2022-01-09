@@ -62,8 +62,8 @@ const ProjectCard = ({pathname, title, date, thumbnail, video}: ProjectCardProps
                         playsInline={true}
                         preload="auto"
                         className="w-full"
+                        src={video}
                     >
-                        <source src={video} type="video/webm"/>
                         Your browser does not support the video tag.
                     </video>
                 )}
