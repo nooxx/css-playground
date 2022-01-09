@@ -17,8 +17,8 @@ const ProjectCard = ({pathname, title, date, thumbnail, video}: ProjectCardProps
     const videoRef = React.useRef<HTMLVideoElement>(null)
 
     useEffect(() => {
-        console.log('use efffect')
         if (appContext.areAllVideosPlaying) {
+            console.log('play video')
             videoRef?.current?.play()
         } else {
             videoRef?.current?.pause()
@@ -61,10 +61,11 @@ const ProjectCard = ({pathname, title, date, thumbnail, video}: ProjectCardProps
                         loop={true}
                         muted={true}
                         playsInline={true}
-                        preload="auto"
                         className="w-full"
-                        src={video}
                     >
+                        <source src={video} type="video/webm" onError={() => {
+                            console.log('webm load error')
+                        }}/>
                         Your browser does not support the video tag.
                     </video>
                 )}
