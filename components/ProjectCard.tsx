@@ -1,5 +1,6 @@
 import React, {useContext, useEffect} from 'react'
 import Link from "next/link";
+import Image from "next/image"
 import {AppContext} from "../contexts/app-context";
 import {ArrowRightIcon} from "./Icons";
 
@@ -8,7 +9,7 @@ type ProjectCardProps = {
     title: string,
     date: string,
     video_mp4: string,
-    poster?: string,
+    poster: StaticImageData,
     video_webm?: string,
 }
 
@@ -46,14 +47,22 @@ const ProjectCard = ({pathname, title, date, poster, video_mp4, video_webm}: Pro
                     <span className="text-sm font-light">{date}</span>
                 </div>
 
+                <div className="block tablet:hidden">
+                    <Image
+                        src={poster}
+                        quality={100}
+                        alt={`${title} thumbnail`}
+                        placeholder="blur"
+                    />
+                </div>
+
                 <video
                     ref={videoRef}
-                    className="w-full"
+                    className="hidden tablet:block w-full"
                     autoPlay={true}
                     loop={true}
                     muted={true}
                     playsInline={true}
-                    poster={poster}
                 >
                     <source src={video_mp4} type="video/mp4"/>
                     <source src={video_webm} type="video/webm"/>

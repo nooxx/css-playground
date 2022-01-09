@@ -5,13 +5,14 @@ type SwitchProps = {
     onChange: Function,
     label?: string,
     checked?: boolean,
+    className?: string,
 }
 
-const Switch = ({onChange, label, checked = false}: SwitchProps) => {
+const Switch = ({onChange, label, checked = false, className = ''}: SwitchProps) => {
     const [enabled, setEnabled] = useState(checked)
 
     return (
-        <HeadLessSwitch.Group as="div" className="flex items-center">
+        <HeadLessSwitch.Group as="div" className={`flex items-center ${className}`}>
             {label && (
                 <HeadLessSwitch.Label as="span" className="mr-3">
                     <span className="text-base font-medium text-white">

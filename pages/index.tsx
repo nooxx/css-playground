@@ -4,6 +4,9 @@ import React, {useContext} from "react";
 import ProjectCard from "../components/ProjectCard";
 import Switch from "../components/Switch";
 import {AppContext} from "../contexts/app-context";
+import Cube from "../public/cube.jpg"
+import Circles from "../public/circles.jpg"
+import Sun from "../public/sun.jpg"
 
 export const PROJECTS = [
     {
@@ -12,7 +15,7 @@ export const PROJECTS = [
         date: 'Jan 2022',
         video_mp4: '/cube.mp4',
         video_webm: '/cube.webm',
-        poster: '/cube.jpg'
+        poster: Cube,
     },
     {
         pathname: '/circles',
@@ -20,7 +23,7 @@ export const PROJECTS = [
         date: 'Dec 2021',
         video_mp4: '/circles.mp4',
         video_webm: '/circles.webm',
-        poster: '/circles.jpg'
+        poster: Circles,
     },
     {
         pathname: '/sun',
@@ -28,7 +31,7 @@ export const PROJECTS = [
         date: 'Nov 2021',
         video_mp4: '/sun.mp4',
         video_webm: '/sun.webm',
-        poster: '/sun.jpg'
+        poster: Sun,
     },
 ]
 
@@ -49,6 +52,7 @@ const Index: NextPageWithLayout = () => {
                     checked={appContext.areAllVideosPlaying}
                     onChange={handlePlayAllProjects}
                     label="Play all projects"
+                    className="hidden tablet:flex"
                 />
             </div>
             <div className="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-8 mb-20">
