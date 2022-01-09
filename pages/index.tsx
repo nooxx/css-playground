@@ -1,37 +1,37 @@
 import type {NextPageWithLayout} from "./_app";
 import Layout from "../components/Layout";
 import React, {useContext} from "react";
-import ProjectCard from "../components/ProjectCard";
+import ProjectCard, {ProjectCardProps} from "../components/ProjectCard";
 import Switch from "../components/Switch";
 import {AppContext} from "../contexts/app-context";
-import Cube from "../public/cube.jpg"
-import Circles from "../public/circles.jpg"
-import Sun from "../public/sun.jpg"
+import Cube from "../public/projects/cube/cube.webp"
+import Circles from "../public/projects/circles/circles.webp"
+import Sun from "../public/projects/sun/sun.webp"
 
-export const PROJECTS = [
+export const PROJECTS: ProjectCardProps[] = [
     {
         pathname: '/cube',
         title: 'Cube',
         date: 'Jan 2022',
-        video_mp4: '/cube.mp4',
-        video_webm: '/cube.webm',
-        poster: Cube,
+        video_mp4: '/projects/cube/cube.mp4',
+        video_webm: '/projects/cube/cube.webm',
+        thumbnail: Cube,
     },
     {
         pathname: '/circles',
         title: 'Circles',
         date: 'Dec 2021',
-        video_mp4: '/circles.mp4',
-        video_webm: '/circles.webm',
-        poster: Circles,
+        video_mp4: '/projects/circles/circles.mp4',
+        video_webm: '/projects/circles/circles.webm',
+        thumbnail: Circles,
     },
     {
         pathname: '/sun',
         title: 'Sun',
         date: 'Nov 2021',
-        video_mp4: '/sun.mp4',
-        video_webm: '/sun.webm',
-        poster: Sun,
+        video_mp4: '/projects/sun/sun.mp4',
+        video_webm: '/projects/sun/sun.webm',
+        thumbnail: Sun,
     },
 ]
 

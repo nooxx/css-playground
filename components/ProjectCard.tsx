@@ -4,16 +4,16 @@ import Image from "next/image"
 import {AppContext} from "../contexts/app-context";
 import {ArrowRightIcon} from "./Icons";
 
-type ProjectCardProps = {
+export type ProjectCardProps = {
     pathname: string,
     title: string,
     date: string,
     video_mp4: string,
-    poster: StaticImageData,
+    thumbnail: StaticImageData,
     video_webm?: string,
 }
 
-const ProjectCard = ({pathname, title, date, poster, video_mp4, video_webm}: ProjectCardProps) => {
+const ProjectCard = ({pathname, title, date, thumbnail, video_mp4, video_webm}: ProjectCardProps) => {
     const {appContext} = useContext(AppContext)
     const videoRef = React.useRef<HTMLVideoElement>(null)
 
@@ -49,16 +49,17 @@ const ProjectCard = ({pathname, title, date, poster, video_mp4, video_webm}: Pro
 
                 <div className="block tablet:hidden">
                     <Image
-                        src={poster}
+                        src={thumbnail}
                         quality={100}
                         alt={`${title} thumbnail`}
                         placeholder="blur"
+                        layout="responsive"
                     />
                 </div>
 
                 <video
                     ref={videoRef}
-                    className="hidden tablet:block w-full"
+                    className="hidden tablet:block w-full text-white"
                     autoPlay={true}
                     loop={true}
                     muted={true}

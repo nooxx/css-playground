@@ -2,7 +2,7 @@
 
 $color_saturation: 100%;
 $color_lightness: 50%;
-$cube-width-desktop: 350;
+$cube-width-desktop: 250;
 $cube-width-mobile: 200;
 
 .cube {
@@ -13,9 +13,7 @@ $cube-width-mobile: 200;
   aspect-ratio: 1 / 1;
   will-change: transform;
   transform: rotateY(45deg) rotateX(45deg) translateZ(0);
-  -webkit-transform: rotateY(45deg) rotateX(45deg) translateZ(0);
   animation: animate-rotation 5s infinite linear;
-  -webkit-animation: animate-rotation 5s infinite linear;
 
 
   @media (max-width: 1024px) {
@@ -31,7 +29,6 @@ $cube-width-mobile: 200;
     transform-style: preserve-3d;
     will-change: transform;
     transform: translateZ(0);
-    -webkit-transform: translateZ(0);
     animation: animate-background-position 5s ease infinite;
 
     @for $i from 1 to 7 {
@@ -49,58 +46,46 @@ $cube-width-mobile: 200;
 
     &__front {
       transform: rotateY(0deg) translateZ(#{math.div($cube-width-desktop, 2)}px);
-      -webkit-transform: rotateY(0deg) translateZ(#{math.div($cube-width-desktop, 2)}px);
     }
 
     &__right {
       transform: rotateY(90deg) translateZ(#{math.div($cube-width-desktop, 2)}px);
-      -webkit-transform: rotateY(90deg) translateZ(#{math.div($cube-width-desktop, 2)}px);
     }
 
     &__back {
       transform: rotateY(180deg) translateZ(#{math.div($cube-width-desktop, 2)}px);
-      -webkit-transform: rotateY(180deg) translateZ(#{math.div($cube-width-desktop, 2)}px);
     }
 
     &__left {
       transform: rotateY(-90deg) translateZ(#{math.div($cube-width-desktop, 2)}px);
-      -webkit-transform: rotateY(-90deg) translateZ(#{math.div($cube-width-desktop, 2)}px);
     }
 
     &__top {
       transform: rotateX(90deg) translateZ(#{math.div($cube-width-desktop, 2)}px);
-      -webkit-transform: rotateX(90deg) translateZ(#{math.div($cube-width-desktop, 2)}px);
     }
 
     &__bottom {
       transform: rotateX(-90deg) translateZ(#{math.div($cube-width-desktop, 2)}px);
-      -webkit-transform: rotateX(-90deg) translateZ(#{math.div($cube-width-desktop, 2)}px);
     }
 
     @media (max-width: 1024px) {
       &__front {
         transform: rotateY(0deg) translateZ(#{math.div($cube-width-mobile, 2)}px);
-        -webkit-transform: rotateY(0deg) translateZ(#{math.div($cube-width-mobile, 2)}px);
       }
       &__right {
         transform: rotateY(90deg) translateZ(#{math.div($cube-width-mobile, 2)}px);
-        -webkit-transform: rotateY(90deg) translateZ(#{math.div($cube-width-mobile, 2)}px);
       }
       &__back {
         transform: rotateY(180deg) translateZ(#{math.div($cube-width-mobile, 2)}px);
-        -webkit-transform: rotateY(180deg) translateZ(#{math.div($cube-width-mobile, 2)}px);
       }
       &__left {
         transform: rotateY(-90deg) translateZ(#{math.div($cube-width-mobile, 2)}px);
-        -webkit-transform: rotateY(-90deg) translateZ(#{math.div($cube-width-mobile, 2)}px);
       }
       &__top {
         transform: rotateX(90deg) translateZ(#{math.div($cube-width-mobile, 2)}px);
-        -webkit-transform: rotateX(90deg) translateZ(#{math.div($cube-width-mobile, 2)}px);
       }
       &__bottom {
         transform: rotateX(-90deg) translateZ(#{math.div($cube-width-mobile, 2)}px);
-        -webkit-transform: rotateX(-90deg) translateZ(#{math.div($cube-width-mobile, 2)}px);
       }
     }
   }
