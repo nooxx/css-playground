@@ -59,6 +59,7 @@ const ProjectCard = ({pathname, title, date, thumbnail, video}: ProjectCardProps
                         autoPlay={true}
                         loop={true}
                         muted={true}
+                        playsInline={true}
                         preload="auto"
                         className="w-full"
                     >
