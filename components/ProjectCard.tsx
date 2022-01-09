@@ -1,5 +1,4 @@
 import React, {useContext, useEffect} from 'react'
-import Image from "next/image";
 import Link from "next/link";
 import {AppContext} from "../contexts/app-context";
 import {ArrowRightIcon} from "./Icons";
@@ -8,17 +7,17 @@ type ProjectCardProps = {
     pathname: string,
     title: string,
     date: string,
-    thumbnail?: StaticImageData,
-    video?: string,
+    video_mp4: string,
+    poster?: string,
+    video_webm?: string,
 }
 
-const ProjectCard = ({pathname, title, date, thumbnail, video}: ProjectCardProps) => {
+const ProjectCard = ({pathname, title, date, poster, video_mp4, video_webm}: ProjectCardProps) => {
     const {appContext} = useContext(AppContext)
     const videoRef = React.useRef<HTMLVideoElement>(null)
 
     useEffect(() => {
         if (appContext.areAllVideosPlaying) {
-            console.log('play video')
             videoRef?.current?.play()
         } else {
             videoRef?.current?.pause()
@@ -26,12 +25,12 @@ const ProjectCard = ({pathname, title, date, thumbnail, video}: ProjectCardProps
     }, [appContext.areAllVideosPlaying])
 
     const handleMouseEnter = () => {
-        if (!video || appContext.areAllVideosPlaying) return
+        if (appContext.areAllVideosPlaying) return
         videoRef?.current?.play()
     }
 
     const handleMouseLeave = () => {
-        if (!video || appContext.areAllVideosPlaying) return
+        if (appContext.areAllVideosPlaying) return
         videoRef?.current?.pause()
     }
 
@@ -43,35 +42,27 @@ const ProjectCard = ({pathname, title, date, thumbnail, video}: ProjectCardProps
                 onMouseLeave={handleMouseLeave}
             >
                 <div className="flex items-center justify-between mb-3">
-                    <h2 className="text-4xl">{title}</h2>
+                    <h2>{title}</h2>
                     <span className="text-sm font-light">{date}</span>
                 </div>
 
-                {thumbnail && (
-                    <Image
-                        src={thumbnail}
-                        alt={`${title} thumbnail`}
-                        placeholder="blur"
-                    />
-                )}
-                {video && (
-                    <video
-                        ref={videoRef}
-                        autoPlay={true}
-                        loop={true}
-                        muted={true}
-                        playsInline={true}
-                        className="w-full"
-                    >
-                        <source src={video} type="video/webm" onError={() => {
-                            console.log('webm load error')
-                        }}/>
-                        Your browser does not support the video tag.
-                    </video>
-                )}
+                <video
+                    ref={videoRef}
+                    className="w-full"
+                    autoPlay={true}
+                    loop={true}
+                    muted={true}
+                    playsInline={true}
+                    poster={poster}
+                >
+                    <source src={video_mp4} type="video/mp4"/>
+                    <source src={video_webm} type="video/webm"/>
+                    Your browser does not support the video tag.
+                </video>
 
                 <div className="flex justify-end">
-                    <div className="flex items-center font-bold text-base tracking-wide transition ease-in duration-150 group-hover:text-primary">
+                    <div
+                        className="flex items-center font-bold text-base tracking-wide transition ease-in duration-150 group-hover:text-primary">
                         View project <ArrowRightIcon className="ml-2"/>
                     </div>
                 </div>

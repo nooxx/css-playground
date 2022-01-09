@@ -9,8 +9,8 @@ const Circles: NextPageWithLayout = () => {
     return (
         <>
             <Seo title="Circles"/>
-            <ProjectHeader title="Circles" date="Dec 2021" className="mb-16"/>
-            <div className="relative flex flex-grow items-center justify-center overflow-hidden">
+            <ProjectHeader title="Circles" date="Dec 2021" className="mb-0 tablet:mb-8 laptop:mb-16"/>
+            <div className="relative flex flex-grow items-center justify-center overflow-hidden -top-8 tablet:top-0">
                 <div className={styles.circles}>
                     <div className={styles.spiral}>
                         <div className={styles.spiral__circle}>

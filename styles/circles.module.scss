@@ -22,7 +22,7 @@ $circle-spacing: 60;
       $color: list.nth($colors, $i);
 
       &:nth-of-type(#{$i}) {
-        width: calc(80vh - #{$circle-spacing * ($i - 1)}px);
+        width: calc(70vh - #{$circle-spacing * ($i - 1)}px);
         max-width: calc(90% - #{$circle-spacing * ($i - 1)}px);
 
         @if ($index % 2 == 0) {
@@ -35,6 +35,10 @@ $circle-spacing: 60;
             animation: rotate-anti-clock #{$index * 0.5 + 1}s linear infinite;
             animation-delay: #{$index * 0.25}s;
           }
+        }
+
+        @media (max-width: 1024px) {
+          width: calc(50vh - #{$circle-spacing * ($i - 1)}px);
         }
 
         .spiral__circle__segment {

@@ -10,19 +10,25 @@ export const PROJECTS = [
         pathname: '/cube',
         title: 'Cube',
         date: 'Jan 2022',
-        video: '/cube.webm',
+        video_mp4: '/cube.mp4',
+        video_webm: '/cube.webm',
+        poster: '/cube.jpg'
     },
     {
         pathname: '/circles',
         title: 'Circles',
         date: 'Dec 2021',
-        video: '/circles.webm',
+        video_mp4: '/circles.mp4',
+        video_webm: '/circles.webm',
+        poster: '/circles.jpg'
     },
     {
         pathname: '/sun',
         title: 'Sun',
         date: 'Nov 2021',
-        video: '/sun.webm',
+        video_mp4: '/sun.mp4',
+        video_webm: '/sun.webm',
+        poster: '/sun.jpg'
     },
 ]
 
@@ -37,7 +43,7 @@ const Index: NextPageWithLayout = () => {
 
     return (
         <div className="max-w-screen-desktop mx-auto w-full px-4 tablet:px-8">
-            <div className="flex items-center justify-between mb-10">
+            <div className="flex flex-col gap-y-10 laptop:flex-row items-center justify-between mb-10">
                 <h1>Latest projects</h1>
                 <Switch
                     checked={appContext.areAllVideosPlaying}

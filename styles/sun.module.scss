@@ -49,13 +49,13 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    will-change: transform;
+    transform: translate(-50%, -50%) scale(1);
     transform-origin: top left;
     width: 55%;
     height: 55%;
     border-radius: 100%;
     background-color: #fd6f01;
-    animation: grow-heart 3s ease infinite;
   }
 
   &__cornerContainer {
@@ -75,14 +75,5 @@
   }
   50% {
     transform: scale(0.75);
-  }
-}
-
-@keyframes grow-heart {
-  0% {
-    transform: scale(1) translate(-50%, -50%);
-  }
-  50% {
-    transform: scale(0.75) translate(-50%, -50%);
   }
 }

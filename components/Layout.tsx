@@ -12,7 +12,7 @@ const Layout: FunctionComponent = ({children}) => {
                 <meta name="keywords" content="CSS, Arno Simon, projects"/>
             </Head>
             <AppContextProvider>
-                <div className="bg-black">
+                <div className="bg-black overflow-x-hidden">
                     <main className="min-h-screen flex flex-col text-white relative py-10 max-w-screen-desktop mx-auto w-full px-4 tablet:px-8">
                         {children}
                     </main>

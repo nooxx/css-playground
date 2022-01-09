@@ -9,7 +9,7 @@ const Sun: NextPageWithLayout = () => {
     return (
         <div className="">
             <Seo title="Sun"/>
-            <ProjectHeader title="Sun" date="Nov 2021" className="mb-48"/>
+            <ProjectHeader title="Sun" date="Nov 2021" className="mb-24 laptop:mb-48"/>
             <div className="relative flex items-center justify-center">
                 <div className={styles.sun}>
                     <div className={styles.sun__heart}/>
